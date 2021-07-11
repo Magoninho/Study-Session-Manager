@@ -27,6 +27,7 @@ class StudyTimer {
 					this.breakTime();
 			}
 			currentSession.tick();
+			this.render(currentSession.minutes, currentSession.seconds, "Session");
 			console.log(`${currentSession.minutes}:${currentSession.seconds}`);
 
 		}, 1000);
@@ -43,6 +44,8 @@ class StudyTimer {
 
 			if (breakSeconds < 10)
 				breakSeconds = `0${breakSeconds}`;
+
+			this.render(breakMinutes, breakSeconds, "Break Time")
 			console.log(`break time! ${breakMinutes}:${breakSeconds}`);
 			if (breakTime <= 0) { 
 				clearInterval(breakInterval);
@@ -68,6 +71,37 @@ class StudyTimer {
 		if (this.seconds < 10) {
 			this.seconds = `0${this.seconds}`;
 		}
+
+		
+
+	}
+
+	render(minutes, seconds, TimerName) {
+		// TODO: ADD TYPE TO ARGS
+		let string = `
+		<!DOCTYPE html>
+		<html lang="en">
+
+		<head>
+			<meta charset="UTF-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<title>Study Timer</title>
+			<link rel="stylesheet" href="styles/style.css">
+		</head>
+
+		<body>
+		<div class="clock">
+			<h1>${TimerName} ${this.currentSession + 1}</h1>
+			<h1>${minutes}:${seconds}</h1>
+		</div>
+		</body>
+
+		</html>
+		
+		`;
+		document.write(string);
+
+		// if type == break bla bla bla
 	}
 
 	nextSession() {

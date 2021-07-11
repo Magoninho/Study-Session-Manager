@@ -5,6 +5,7 @@ To-do:
 - do the breaks
 - get the input from the html
 - refactor the code
+- document the code functions and classes
 
 Ideas for refactoring:
 - create a generic timer class

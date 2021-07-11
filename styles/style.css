@@ -2,3 +2,15 @@ input[type=number] {
 	font-size: large;
 	width: max-content;
 }
+
+.clock {
+	text-align: center;
+	background-color: aquamarine; 
+	padding: 10px;
+	padding-right: 40px;
+	padding-left: 40px;
+	position: absolute; 
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
