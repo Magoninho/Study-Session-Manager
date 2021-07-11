@@ -78,6 +78,7 @@ class StudyTimer {
 
 	render(minutes, seconds, TimerName) {
 		// TODO: ADD TYPE TO ARGS
+		document.body.innerHTML = '';
 		let string = `
 		<!DOCTYPE html>
 		<html lang="en">
