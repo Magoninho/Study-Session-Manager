@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Study Timer</title>
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+	<script src="scripts/Session.js"></script>
+	<script src="scripts/StudyTimer.js"></script>
+	<script src="scripts/main.js"></script>
+	<h1>Welcome to the Study Session Manager!</h1>
+	<h2>Configure your session</h2>
+	<hr>
+	<div class="config">
+		<h2>How many sessions?</h2>
+		<input type="number" id="sessions"/> sessions
+		<h2>Session of:</h2>
+		<input type="number" id="session_minutes"/> minutes
+		<h2>Breaks of:</h2>
+		<input type="number" id="break_minutes"/> minutes
+		<br><br>
+		<input type="submit" value="Start Studying" onclick="start()">
+
+
+	</div>
+
+
+</body>
+
+</html>

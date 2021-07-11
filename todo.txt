@@ -1,0 +1,10 @@
+To-do:
+- Make forms have no errors
+- Find the better way of counting time without setInterval
+- remove seconds because they are not necessary (when the project is finished)
+- do the breaks
+- get the input from the html
+- refactor the code
+
+Ideas for refactoring:
+- create a generic timer class
