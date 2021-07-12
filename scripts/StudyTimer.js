@@ -19,27 +19,38 @@ class StudyTimer {
 
 
 	start() {
-		this.currentSession = this.sessions_array[this.sessionIndex];
-		let interval = setInterval(() => {
-			if (this.currentSession.isFinished()) {
-				clearInterval(interval);
-				this.onSessionFinish();
-				if (this.breaks != 0) {
-					this.breakTime();
-					return;
-				}
-				if (this.sessions_array[this.sessionIndex + 1] == undefined) {
-					this.onAllFinish();
-					this.renderFinish();
-					return;
-				}
+		try {
+			if (this.minutes <= 0) {
+				throw "Session minutes should be greater than 0";
+			} else if (this.breakMinutes <= 0) {
+				throw "Break minutes should be greater than 0";
+			} else if (this.sessions <= 0) {
+				throw "You should specify more than 0 sessions";
 			}
-			this.currentSession.tick();
-			this.render(this.currentSession.minutes, this.currentSession.seconds, "Session");
+			this.currentSession = this.sessions_array[this.sessionIndex];
+			let interval = setInterval(() => {
+				if (this.currentSession.isFinished()) {
+					clearInterval(interval);
+					this.onSessionFinish();
+					if (this.breaks != 0) {
+						this.breakTime();
+						return;
+					}
+					if (this.sessions_array[this.sessionIndex + 1] == undefined) {
+						this.onAllFinish();
+						this.renderFinish();
+						return;
+					}
+				}
+				this.currentSession.tick();
+				this.render(this.currentSession.minutes, this.currentSession.seconds, "Session");
 
-			// console.log(`${this.currentSession.minutes}:${this.currentSession.seconds}`);
+				// console.log(`${this.currentSession.minutes}:${this.currentSession.seconds}`);
 
-		}, 1000);
+			}, 1000);
+		} catch(err) {
+			alert(err);
+		}
 	}
 
 	breakTime() {
