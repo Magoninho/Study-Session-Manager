@@ -46,8 +46,8 @@ class StudyTimer {
 	}
 
 	breakTime() {
-		// let breakTime = this.breakMinutes * 60;
-		let breakTime = 2;
+		let breakTime = this.breakMinutes * 60;
+		// let breakTime = 2;
 
 		let breakInterval = setInterval(() => {
 			let breakMinutes = Math.floor(breakTime / 60);
@@ -82,7 +82,7 @@ class StudyTimer {
 
 	renderFinish() {
 		document.body.innerHTML = `
-			<div class="clock">
+			<div class="finished">
 				<h1>Finished!</h1>
 			</div>
 		`;

@@ -14,3 +14,63 @@ input[type=number] {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+
+.finished {
+	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+	        animation: heartbeat 1.5s ease-in-out infinite both;
+	text-align: center;
+	background-color: aquamarine; 
+	padding: 10px;
+	padding-right: 40px;
+	padding-left: 40px;
+	position: absolute; 
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+  @keyframes heartbeat {
+	from {
+		
+		-webkit-transform: translate(-50%, -50%) scale(50%, 50%) rotate(0deg);
+		transform: translate(-50%, -50%) scale(50%, 50%) rotate(0deg);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+	10% {
+	  -webkit-transform: translate(-50%, -50%) scale(41%, 41%);
+			  transform: translate(-50%, -50%) scale(41%, 41%);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	17% {
+	  -webkit-transform: translate(-50%, -50%) scale(48%, 48%);
+			  transform: translate(-50%, -50%) scale(48%, 48%);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+	33% {
+	  -webkit-transform: translate(-50%, -50%) scale(37%, 37%);
+			  transform: translate(-50%, -50%) scale(37%, 37%);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	45% {
+	  -webkit-transform: translate(-50%, -50%) scale(50%, 50%);
+			  transform: translate(-50%, -50%) scale(50%, 50%);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+	80% {
+		-webkit-transform: translate(-50%, -50%);
+			  transform: translate(-50%, -50%);
+	}
+	100% {
+		-webkit-transform: translate(-50%, -50%) scale(50%, 50%) rotate(360deg);
+		transform: translate(-50%, -50%) scale(50%, 50%) rotate(360deg);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+  }
+  
