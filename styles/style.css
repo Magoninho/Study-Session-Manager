@@ -1,11 +1,48 @@
 input[type=number] {
 	font-size: large;
 	width: max-content;
+	width: 50px;
+}
+
+body {
+	font-family: monospace;
+	background-color: #282c34;
+	color: #61afef;
+	text-align: center;
+}
+.config {
+	/* background-color: red; */
+	width: max-content;
+	margin: auto;
+	text-align: left;
+}
+
+input[type=submit] {
+	color:#fff;
+	text-align: center;
+	padding: 20px;
+	cursor: pointer;
+	font-size:24px;
+	outline: none;
+	background-color: #98c379;
+	border: none;
+	border-radius:5px;
+	box-shadow: 0 9px #95a5a6;
+}
+
+input[type=submit]:hover{
+	background-color: #2ecc71;
+}
+
+input[type=submit]:active{
+	background-color: #2ecc71;
+	box-shadow: 0 5px #95a5a6;
+	transform: translateY(4px);
 }
 
 .clock {
 	text-align: center;
-	background-color: aquamarine; 
+	background-color: #212327; 
 	padding: 10px;
 	padding-right: 40px;
 	padding-left: 40px;

@@ -1,8 +1,8 @@
 class StudyTimer {
-	constructor(sessions, minutes, seconds, breakMinutes) {
+	constructor(sessions, minutes, /*seconds,*/ breakMinutes) {
 		this.sessions  = sessions;
 		this.minutes   = minutes;
-		this.seconds   = seconds;
+		// this.seconds   = seconds;
 		this.breakMinutes = breakMinutes;
 		// this.totalTime = this.sessions * ((minutes * 60) + seconds);
 		this.breaks = this.sessions - 1;

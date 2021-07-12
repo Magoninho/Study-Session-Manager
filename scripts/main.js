@@ -11,7 +11,7 @@ function start() {
 	let finishAlarm = document.getElementById("finish");
 
 	// expected args: number of sessions, session minutes and break minutes
-	timer = new StudyTimer(sessions, minutes, 3, 0);
+	timer = new StudyTimer(sessions, minutes, breakTime);
 	timer.start();
 	// document.getElementById("alarm").play();
 	timer.onSessionFinish = () => {
