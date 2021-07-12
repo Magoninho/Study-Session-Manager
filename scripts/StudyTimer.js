@@ -7,9 +7,9 @@ class StudyTimer {
 		// this.totalTime = this.sessions * ((minutes * 60) + seconds);
 		this.breaks = this.sessions - 1;
 		this.sessionIndex = 0;
-		this.sessions_array = [];
+		this.sessionsArray = [];
 		for (let i = 0; i < this.sessions; i++) {
-			this.sessions_array.push(new Session(this.minutes, this.seconds));
+			this.sessionsArray.push(new Session(this.minutes, this.seconds));
 		}
 		// custom methods
 		this.onSessionFinish = function () { };
@@ -27,7 +27,7 @@ class StudyTimer {
 			} else if (this.sessions <= 0) {
 				throw "You should specify more than 0 sessions";
 			}
-			this.currentSession = this.sessions_array[this.sessionIndex];
+			this.currentSession = this.sessionsArray[this.sessionIndex];
 			let interval = setInterval(() => {
 				if (this.currentSession.isFinished()) {
 					clearInterval(interval);
@@ -36,7 +36,7 @@ class StudyTimer {
 						this.breakTime();
 						return;
 					}
-					if (this.sessions_array[this.sessionIndex + 1] == undefined) {
+					if (this.sessionsArray[this.sessionIndex + 1] == undefined) {
 						this.onAllFinish();
 						this.renderFinish();
 						return;
