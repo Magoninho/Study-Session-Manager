@@ -48,7 +48,7 @@ input[type=submit] {
 	font-size:24px;
 	outline: none;
 	background-color: #98c379;
-	
+	font-family: monospace;
 	border: none;
 	border-radius:5px;
 	box-shadow: 0 4px #95a5a6;
