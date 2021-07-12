@@ -13,6 +13,7 @@ class StudyTimer {
 		}
 		// custom methods
 		this.onSessionFinish = undefined;
+		this.onAllFinish = undefined;
 	}
 
 
@@ -29,6 +30,9 @@ class StudyTimer {
 					return;
 				}
 				if (this.sessions_array[this.sessionIndex + 1] == undefined) {
+					if (this.onAllFinish != undefined) {
+						this.onAllFinish();
+					}
 					this.renderFinish();
 					return;
 				}
@@ -68,50 +72,20 @@ class StudyTimer {
 
 	render(minutes, seconds, text) {
 		// TODO: ADD TYPE TO ARGS
-		document.body.innerHTML = '';
-		document.write(`
-			<!DOCTYPE html>
-			<html lang="en">
-
-			<head>
-				<meta charset="UTF-8">
-				<meta http-equiv="X-UA-Compatible" content="IE=edge">
-				<title>Study Timer</title>
-				<link rel="stylesheet" href="styles/style.css">
-			</head>
-
-			<body>
+		document.body.innerHTML = `
 			<div class="clock">
 				<h1>${text} ${this.sessionIndex + 1}</h1>
 				<h1>${minutes}:${seconds}</h1>
 			</div>
-			</body>
-
-			</html>
-		`);
+		`;
 	}
 
 	renderFinish() {
-		document.body.innerHTML = '';
-		document.write(`
-			<!DOCTYPE html>
-			<html lang="en">
-
-			<head>
-				<meta charset="UTF-8">
-				<meta http-equiv="X-UA-Compatible" content="IE=edge">
-				<title>Study Timer</title>
-				<link rel="stylesheet" href="styles/style.css">
-			</head>
-
-			<body>
+		document.body.innerHTML = `
 			<div class="clock">
 				<h1>Finished!</h1>
 			</div>
-			</body>
-
-			</html>
-		`);
+		`;
 	}
 
 	nextSession() {
