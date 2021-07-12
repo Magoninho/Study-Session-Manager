@@ -1,10 +1,6 @@
 To-do:
-- Make forms have no errors
 - Find the better way of counting time without setInterval
-- remove seconds because they are not necessary (when the project is finished)
-- refactor the code
 - document the code functions and classes
-- Add a finish text
 
 Ideas for refactoring:
 - create a generic timer class
