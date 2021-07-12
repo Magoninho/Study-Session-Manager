@@ -1,5 +1,0 @@
-class PageManager {
-	constructor() {
-		
-	}
-}

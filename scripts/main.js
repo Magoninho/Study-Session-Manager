@@ -9,6 +9,9 @@ function start() {
 	breakTime = document.getElementById("break_minutes").value;
 
 	// expected args: number of sessions, session minutes and break minutes
-	timer = new StudyTimer(sessions, minutes, 3, 1);
+	timer = new StudyTimer(sessions, minutes, 3, 0);
 	timer.start();
+	// timer.onSessionFinish = () => {
+	// 	alert("cool");
+	// };
 }
