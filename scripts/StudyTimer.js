@@ -1,8 +1,8 @@
 class StudyTimer {
 	constructor(sessions, minutes, /*seconds,*/ breakMinutes) {
-		this.sessions  = sessions;
-		this.minutes   = minutes;
-		// this.seconds   = seconds;
+		this.sessions = sessions;
+		this.minutes = minutes;
+		this.seconds = 0;
 		this.breakMinutes = breakMinutes;
 		// this.totalTime = this.sessions * ((minutes * 60) + seconds);
 		this.breaks = this.sessions - 1;
@@ -12,8 +12,9 @@ class StudyTimer {
 			this.sessions_array.push(new Session(this.minutes, this.seconds));
 		}
 		// custom methods
-		this.onSessionFinish = undefined;
-		this.onAllFinish = undefined;
+		this.onSessionFinish = function () { };
+		this.onBreakFinish = function () { };
+		this.onAllFinish = function () { };
 	}
 
 
@@ -22,24 +23,20 @@ class StudyTimer {
 		let interval = setInterval(() => {
 			if (this.currentSession.isFinished()) {
 				clearInterval(interval);
-				if (this.onSessionFinish != undefined) {
-					this.onSessionFinish();
-				}
+				this.onSessionFinish();
 				if (this.breaks != 0) {
 					this.breakTime();
 					return;
 				}
 				if (this.sessions_array[this.sessionIndex + 1] == undefined) {
-					if (this.onAllFinish != undefined) {
-						this.onAllFinish();
-					}
+					this.onAllFinish();
 					this.renderFinish();
 					return;
 				}
 			}
 			this.currentSession.tick();
 			this.render(this.currentSession.minutes, this.currentSession.seconds, "Session");
-			
+
 			// console.log(`${this.currentSession.minutes}:${this.currentSession.seconds}`);
 
 		}, 1000);
@@ -57,15 +54,16 @@ class StudyTimer {
 				breakSeconds = `0${breakSeconds}`;
 
 			this.render(breakMinutes, breakSeconds, "Break Time")
-			console.log(`break time! ${breakMinutes}:${breakSeconds}`);
-			if (breakTime <= 0) { 
+			// console.log(`break time! ${breakMinutes}:${breakSeconds}`);
+			if (breakTime <= 0) {
 				clearInterval(breakInterval);
-				console.log("Break time finished!");
+				// console.log("Break time finished!");
+				this.onBreakFinish();
 				this.nextSession();
 				this.start();
 			}
 			breakTime--;
-			
+
 		}, 1000);
 		this.breaks--;
 	}

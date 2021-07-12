@@ -13,7 +13,7 @@ class Session {
 			this.seconds = `0${this.seconds}`;
 		}
 		this.sessionTime--;
-		console.log(this.sessionTime);
+		// console.log(this.sessionTime);
 	}
 
 	isFinished() {
