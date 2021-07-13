@@ -1,6 +1,9 @@
 <p align="center">
 <img src="./icon.png" width="300"><br>
 </p>
+
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/Magoninho/Study-Session-Manager)
+
 This is an application with a very generic name for dividing your study sessions with custom time. 
 There are breaks between sessions and some cool alarms.
 
