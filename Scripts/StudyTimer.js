@@ -20,7 +20,6 @@ class StudyTimer {
 
 
 	start() {
-
 		try {
 			if (this.minutes <= 0) {
 				throw "Session minutes should be greater than 0";
@@ -73,7 +72,7 @@ class StudyTimer {
 		// let breakTime = 2;
 
 		let breakInterval = setInterval(() => {
-			if (this.paused) {
+			if (!this.paused) {
 				this.currentMinutes = Math.floor(breakTime / 60);
 				this.currentSeconds = breakTime - (this.currentMinutes * 60);
 
