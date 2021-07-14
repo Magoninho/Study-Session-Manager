@@ -1,8 +1,8 @@
 class StudyTimer {
 	constructor(sessions, minutes, /*seconds,*/ breakMinutes) {
 		this.sessions = sessions;
-		this.currentMinutes = 0;
-		this.currentSeconds = 3;
+		this.currentMinutes = minutes;
+		this.currentSeconds = 0;
 		this.paused = false;
 		this.breakMinutes = breakMinutes;
 		this.breaks = this.sessions - 1;
@@ -21,13 +21,13 @@ class StudyTimer {
 
 	start() {
 		try {
-			// if (this.currentMinutes <= 0) {
-			// 	throw "Session minutes should be greater than 0";
-			// } else if (this.breakMinutes <= 0) {
-			// 	throw "Break minutes should be greater than 0";
-			// } else if (this.sessions <= 0) {
-			// 	throw "You should specify more than 0 sessions";
-			// }
+			if (this.currentMinutes <= 0) {
+				throw "Session minutes should be greater than 0";
+			} else if (this.breakMinutes <= 0) {
+				throw "Break minutes should be greater than 0";
+			} else if (this.sessions <= 0) {
+				throw "You should specify more than 0 sessions";
+			}
 			this.currentSession = this.sessionsArray[this.sessionIndex];
 			document.getElementById('setup').style.display = 'none';
 			document.getElementById('clock').style.display = 'initial';
