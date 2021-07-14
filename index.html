@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Study Session Manager</title>
-	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="Styles/style.css">
 	<link rel="shortcut icon" href="./favicon.ico">
 	<audio id="alarm" src="Sounds/Alarm.ogg"></audio>
 	<audio id="finish" src="Sounds/Finish.ogg"></audio>
@@ -14,25 +14,37 @@
 </head>
 
 <body>
-	<script src="scripts/Session.js"></script>
-	<script src="scripts/StudyTimer.js"></script>
-	<script src="scripts/main.js"></script>
-	<h1>Welcome to the Study Session Manager!</h1>
-	<h2>Configure your session</h2>
-	<div class="config">
-		<h2>How many sessions?</h2>
-		<input type="number" id="sessions" /> sessions
-		<h2>Sessions of:</h2>
-		<input type="number" id="session_minutes" /> minutes
-		<h2>Breaks of:</h2>
-		<input type="number" id="break_minutes" /> minutes
-		<br><br>
-		<input type="submit" value="Start Studying »" onclick="start()">
+	<script src="Scripts/Constants.js"></script>
+	<script src="Scripts/Session.js"></script>
+	<script src="Scripts/StudyTimer.js"></script>
+	<script src="Scripts/main.js"></script>
+	<div id="setup">
+		<h1>Welcome to the Study Session Manager!</h1>
+		<h2>Configure your session</h2>
+		<div class="config">
+			<h2>How many sessions?</h2>
+			<input type="number" id="sessions" /> sessions
+			<h2>Sessions of:</h2>
+			<input type="number" id="session_minutes" /> minutes
+			<h2>Breaks of:</h2>
+			<input type="number" id="break_minutes" /> minutes
+			<br><br>
+			<input type="submit" value="Start Studying »" onclick="start()">
+		</div>
+		<div class="footer">
+			<p>Created by <a href="https://github.com/Magoninho" target="_blank">Magoninho</a></p>
+		</div>
 	</div>
 
-	<div class="footer">
-		<p>Created by <a href="https://github.com/Magoninho" target="_blank">Magoninho</a></p>
+	<div id="clock">
+		<h1 id="timer-title">Loading...</h1>
+		<h1 id="timer"></h1>
 	</div>
+	<div id="controller">
+		<img style="cursor: pointer;" onclick="timer.pause();" width="50" id="play-btn" src="Images/Pause.svg">
+	</div>
+
+
 
 
 </body>

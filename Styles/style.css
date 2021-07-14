@@ -32,12 +32,23 @@ a {
 .config {
 	/* background-color: red; */
 	padding: 20px;
-	padding-left: 50px;
-	padding-right: 50px;
+	/* padding-left: 20px;
+	padding-right: 50px; */
 	border: dashed 3px #98c379;
 	width: max-content;
 	margin: auto;
 	text-align: left;
+}
+
+#controller {
+	display: none;
+	padding: 10px;
+	padding-right: 40px;
+	padding-left: 40px;
+	position: absolute; 
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, 100%);
 }
 
 input[type=submit] {
@@ -71,7 +82,8 @@ input[type=submit]:active{
 	transform: translateY(4px);
 }
 
-.clock {
+#clock {
+	display: none;
 	text-align: center;
 	background-color: #212327; 
 	padding: 10px;
