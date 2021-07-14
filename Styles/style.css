@@ -95,7 +95,8 @@ input[type=submit]:active{
 	transform: translate(-50%, -50%);
 }
 
-.finished {
+#finished {
+	display: none;
 	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
 	        animation: heartbeat 1.5s ease-in-out infinite both;
 	background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);

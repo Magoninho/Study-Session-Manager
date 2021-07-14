@@ -1,8 +1,8 @@
 class StudyTimer {
 	constructor(sessions, minutes, /*seconds,*/ breakMinutes) {
 		this.sessions = sessions;
-		this.currentMinutes = minutes;
-		this.currentSeconds = 0;
+		this.currentMinutes = 0;
+		this.currentSeconds = 3;
 		this.paused = false;
 		this.breakMinutes = breakMinutes;
 		this.breaks = this.sessions - 1;
@@ -21,20 +21,20 @@ class StudyTimer {
 
 	start() {
 		try {
-			if (this.minutes <= 0) {
-				throw "Session minutes should be greater than 0";
-			} else if (this.breakMinutes <= 0) {
-				throw "Break minutes should be greater than 0";
-			} else if (this.sessions <= 0) {
-				throw "You should specify more than 0 sessions";
-			}
+			// if (this.currentMinutes <= 0) {
+			// 	throw "Session minutes should be greater than 0";
+			// } else if (this.breakMinutes <= 0) {
+			// 	throw "Break minutes should be greater than 0";
+			// } else if (this.sessions <= 0) {
+			// 	throw "You should specify more than 0 sessions";
+			// }
 			this.currentSession = this.sessionsArray[this.sessionIndex];
 			document.getElementById('setup').style.display = 'none';
 			document.getElementById('clock').style.display = 'initial';
-			document.getElementById('controller').style.display = 'initial';
 			let interval = setInterval(() => {
+				document.getElementById('controller').style.display = 'initial';
 				if (!this.paused) {
-					
+
 					if (this.currentSession.isFinished()) {
 						clearInterval(interval);
 						this.onSessionFinish();
@@ -64,7 +64,7 @@ class StudyTimer {
 
 	pause() {
 		this.paused = !this.paused;
-		document.getElementById('play-btn').src = this.paused ? '../Images/Play.svg' : '../Images/Pause.svg';
+		document.getElementById('play-btn').src = this.paused ? 'Images/Play.svg' : 'Images/Pause.svg';
 	}
 
 	breakTime() {
@@ -100,11 +100,9 @@ class StudyTimer {
 	}
 
 	renderFinish() {
-		document.body.innerHTML = `
-			<div class="finished">
-				<h1>Finished!</h1>
-			</div>
-		`;
+		document.getElementById('clock').style.display = 'none';
+		document.getElementById('controller').style.display = 'none';
+		document.getElementById('finished').style.display = 'initial';
 	}
 
 	nextSession() {

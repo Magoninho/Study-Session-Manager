@@ -1,7 +1,7 @@
 class Session {
-	constructor(minutes/*, seconds*/) {
+	constructor(minutes, seconds) {
 		this.minutes = minutes;
-		this.seconds = /*seconds*/0;
+		this.seconds = seconds;
 		this.sessionTime = ((minutes * 60) + seconds);
 	}
 

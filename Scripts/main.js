@@ -10,6 +10,12 @@ function start() {
 	let alarm 		= document.getElementById("alarm");
 	let finishAlarm = document.getElementById("finish");
 	let breakFinishAlarm = document.getElementById("breakFinish");
+	// let alarm = new Audio('../Sounds/Alarm.ogg');
+	// let finishAlarm = new Audio('../Sounds/Finish.ogg');
+	// let breakFinishAlarm = new Audio ('../Sounds/BreakFinish.ogg');
+
+
+	// alarm.play();
 
 	// expected args: number of sessions, session minutes and break minutes
 	timer = new StudyTimer(sessions, minutes, breakTime);
@@ -22,7 +28,7 @@ function start() {
 		alarm.load();
 		finishAlarm.play();
 	};
-
+	
 	timer.onBreakFinish = () => {
 		breakFinishAlarm.volume = 0.5;
 		breakFinishAlarm.play();

@@ -11,13 +11,12 @@
 	<audio id="alarm" src="Sounds/Alarm.ogg"></audio>
 	<audio id="finish" src="Sounds/Finish.ogg"></audio>
 	<audio id="breakFinish" src="Sounds/BreakFinish.ogg"></audio>
+
 </head>
 
 <body>
-	<script src="Scripts/Constants.js"></script>
-	<script src="Scripts/Session.js"></script>
-	<script src="Scripts/StudyTimer.js"></script>
-	<script src="Scripts/main.js"></script>
+
+
 	<div id="setup">
 		<h1>Welcome to the Study Session Manager!</h1>
 		<h2>Configure your session</h2>
@@ -40,12 +39,17 @@
 		<h1 id="timer-title">Loading...</h1>
 		<h1 id="timer"></h1>
 	</div>
+	<div id="finished">
+		<h1>Finished!</h1>
+	</div>
 	<div id="controller">
 		<img style="cursor: pointer;" onclick="timer.pause();" width="50" id="play-btn" src="Images/Pause.svg">
 	</div>
 
 
-
+	<script src="Scripts/Session.js"></script>
+	<script src="Scripts/StudyTimer.js"></script>
+	<script src="Scripts/main.js"></script>
 
 </body>
 
