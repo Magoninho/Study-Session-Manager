@@ -28,38 +28,45 @@ class StudyTimer {
 			} else if (this.sessions <= 0) {
 				throw "You should specify more than 0 sessions";
 			}
-			this.currentSession = this.sessionsArray[this.sessionIndex];
+			
 			document.getElementById('setup').style.display = 'none';
 			document.getElementById('clock').style.display = 'initial';
-			let interval = setInterval(() => {
-				document.getElementById('controller').style.display = 'initial';
-				if (!this.paused) {
-
-					if (this.currentSession.isFinished()) {
-						clearInterval(interval);
-						this.onSessionFinish();
-						if (this.breaks != 0) {
-							this.breakTime();
-							return;
-						}
-						if (this.sessionsArray[this.sessionIndex + 1] == undefined) {
-							this.onAllFinish();
-							this.renderFinish();
-							return;
-						}
-					}
-
-					this.currentSession.tick();
-					this.currentMinutes = this.currentSession.minutes;
-					this.currentSeconds = this.currentSession.seconds;
-				}
-				this.render("Session");
-				// console.log(`${this.currentSession.minutes}:${this.currentSession.seconds}`);
-
-			}, 1000);
+			this.sessionStart();
+			
 		} catch (err) {
 			alert(err);
 		}
+	}
+
+	sessionStart() {
+		this.currentSession = this.sessionsArray[this.sessionIndex];
+		let interval = setInterval(() => {
+			document.getElementById('controller').style.display = 'initial';
+			if (!this.paused) {
+
+				if (this.currentSession.isFinished()) {
+					clearInterval(interval);
+					if (this.breaks != 0) {
+						this.breakTime();
+						return;
+					}
+					if (this.sessionsArray[this.sessionIndex + 1] == undefined) {
+						this.onAllFinish();
+						this.renderFinish();
+						return;
+					} else {
+						this.onSessionFinish();
+					}
+				}
+
+				this.currentSession.tick();
+				this.currentMinutes = this.currentSession.minutes;
+				this.currentSeconds = this.currentSession.seconds;
+			}
+			this.render("Session");
+			// console.log(`${this.currentSession.minutes}:${this.currentSession.seconds}`);
+
+		}, 1000);
 	}
 
 	pause() {
@@ -86,7 +93,7 @@ class StudyTimer {
 					// console.log("Break time finished!");
 					this.onBreakFinish();
 					this.nextSession();
-					this.start();
+					this.sessionStart();
 				}
 				breakTime--;
 			}

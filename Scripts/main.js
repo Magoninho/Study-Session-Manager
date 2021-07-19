@@ -25,7 +25,6 @@ function start() {
 		alarm.play();
 	};
 	timer.onAllFinish = () => {
-		alarm.load();
 		finishAlarm.play();
 	};
 	
