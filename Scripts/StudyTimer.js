@@ -48,14 +48,15 @@ class StudyTimer {
 					clearInterval(interval);
 					if (this.breaks != 0) {
 						this.breakTime();
-						return;
 					}
 					if (this.sessionsArray[this.sessionIndex + 1] == undefined) {
 						this.onAllFinish();
 						this.renderFinish();
 						return;
 					} else {
+						console.log("foda");
 						this.onSessionFinish();
+						return;
 					}
 				}
 

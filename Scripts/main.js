@@ -23,6 +23,7 @@ function start() {
 	// document.getElementById("alarm").play();
 	timer.onSessionFinish = () => {
 		alarm.play();
+		console.log("gamer");
 	};
 	timer.onAllFinish = () => {
 		finishAlarm.play();
